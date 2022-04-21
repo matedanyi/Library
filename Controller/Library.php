@@ -92,8 +92,6 @@ class Library extends AppController
       }
     }
 
-
-
     $authors = $this->Authors->getAuthors();
     $this->set('authors', $authors);
 
@@ -115,8 +113,22 @@ class Library extends AppController
 
   public function author()
   {
+    $this->useModels(array('Authors'));
     $this->template = 'admin/szerzo_form';
+
+    $author = $_POST;
+    $getKey = array_keys($_GET);
+
+
+    if (isset($_POST['author'])) {
+      $author = $this->Authors->save($_POST);
+    }
+
+    $this->set('author', $author);
   }
+
+
+
 
   public function deleteBooks()
   {

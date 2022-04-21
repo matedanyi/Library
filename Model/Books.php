@@ -133,9 +133,6 @@ class Books extends Application
       $this->id = $this->getLastInsertedId();
       $this->saveCategory($book);
     }
-
-
-
     return $this->id;
   }
 
@@ -238,6 +235,7 @@ class Books extends Application
       $this->messages[] = 'A nyelv értéke nem lehet hosszabb 255 karakternél';
       return false;
     }
+
 
     //TODO: author_id és a category_id validálása az adatbázis alapján
 

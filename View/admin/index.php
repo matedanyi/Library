@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Könyvtár Program</title>
+  <title>Library</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" href="Sources/img/favicon.png">
   <link rel="stylesheet" href="Sources/css/responsive.css" />
@@ -16,19 +16,19 @@
 
 <body>
   <header>
-    <h1>Könyvtár Program</h1>
+    <h1> <span> Library</span></h1>
     <span class="f-right"><a href="?userhandler/logout"><img src="Sources/img/logout.png" alt="kilépés" title="kilépés" /></a></span>
   </header>
 
   <div class="col-12">
     <div class="col-6">
-      <h2>Szerzők listája</h2>
-      <button type="button" onclick="location.href='?library/author';">Új szerző</button>
+      <h2><span>Authors</span></h2>
+      <button type="button" onclick="location.href='?library/author';">New author</button>
 
       <table cellspacing="0">
         <tr>
-          <th>Név</th>
-          <th>Funkciók</th>
+          <th>Author</th>
+          <th>Functions</th>
         </tr>
 
         <? foreach ($authors as $key => $author) { ?>
@@ -36,23 +36,22 @@
             <td><?= $author['NAME'] ?></td>
             <td class="functions">
               <a href="?library/author/<?= $author['id'] ?>">
-                <img src="Sources/img/edit.png" alt="módosítás" title="módosítás"></a>
+                <img src="Sources/img/edit.png" alt="modify" title="modify"></a>
               <a href="#" class="delete_rec" table="Authors" rec_id="<?= $author['id'] ?>">
-                <img src="Sources/img/delete.png" alt="törlés" title="törlés"></a>
+                <img src="Sources/img/delete.png" alt="delete" title="delete"></a>
             </td>
           </tr>
         <?  }  ?>
       </table>
-
     </div>
 
     <div class="col-6" id="bcgkat">
-      <h2>Kategóriák listája</h2>
-      <button type="button" onclick="location.href='?library/category';">Új kategória</button>
+      <h2><span>Categories</span></h2>
+      <button type="button" onclick="location.href='?library/category';">New category</button>
       <table cellspacing="0">
         <tr>
-          <th>Név</th>
-          <th>Funkciók</th>
+          <th>Category</th>
+          <th>Functions</th>
         </tr>
 
 
@@ -61,9 +60,9 @@
             <td><?= $category['NAME'] ?></td>
             <td class="functions">
               <a href="?library/category/<?= $category['id'] ?>">
-                <img src="Sources/img/edit.png" alt="módosítás" title="módosítás"></a>
+                <img src="Sources/img/edit.png" alt="modify" title="modify"></a>
               <a href="#" class="delete_rec" table="Categories" rec_id="<?= $category['id'] ?>">
-                <img src="Sources/img/delete.png" alt="törlés" title="törlés"></a>
+                <img src="Sources/img/delete.png" alt="delete" title="delete"></a>
             </td>
           </tr>
         <?  }  ?>
@@ -74,17 +73,17 @@
   </div>
 
   <div class="col-12">
-    <h2>Könyvek listája</h2>
-    <button type="button" onclick="location.href='?library/book';">Új könyv</button>
+    <h2><span>Books</span></h2>
+    <button type="button" onclick="location.href='?library/book';">New books</button>
 
     <table cellspacing="0">
       <tr>
-        <th>Cím</th>
-        <th>Oldalszám</th>
-        <th>Nyelv</th>
-        <th>Szerző</th>
-        <th>Kategóriák</th>
-        <th>Funkciók</th>
+        <th>Title</th>
+        <th>Pages</th>
+        <th>Language</th>
+        <th>Author</th>
+        <th>Categories</th>
+        <th>Functions</th>
       </tr>
       <? foreach ($books as $key => $book) { ?>
         <tr>
@@ -95,18 +94,15 @@
           <td><?= $book['category'] ?></td>
           <td class="functions">
             <a href="?library/book/<?= $book['id'] ?>">
-              <img src="Sources/img/edit.png" alt="módosítás" title="módosítás"></a>
+              <img src="Sources/img/edit.png" alt="modify" title="modify"></a>
             <a href="#" class="delete_rec" table="Books" rec_id="<?= $book['id'] ?>">
-              <img src="Sources/img/delete.png" alt="törlés" title="törlés"></a>
+              <img src="Sources/img/delete.png" alt="delete" title="delete"></a>
           </td>
         </tr>
       <?  }  ?>
 
 
     </table>
-
-
-
   </div>
 </body>
 

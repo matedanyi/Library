@@ -4,7 +4,7 @@ class Application
 {
 
   private $dbParams = array(
-    "servername" => 'localhost',
+    "servername" => '127.0.0.1',
     'username' => 'root',
     'password' => 'valami',
     'dbname' => 'library'

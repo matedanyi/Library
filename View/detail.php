@@ -1,7 +1,6 @@
 <header>
-  <h2>Részletes nézet</h2>
+  <h2>Detailed view</h2>
 </header>
-
 
 <div>
   <h3 class="col-12"><?= $book['title'] ?></h3>
@@ -12,29 +11,29 @@
   <div class="col-6">
     <table class="detail_table" cellspacing=0>
       <tr>
-        <td>Szerző:</td>
+        <td>Author:</td>
         <td><?= $book['author'] ?></td>
       </tr>
 
       <tr>
-        <td>Oldalszám:</td>
+        <td>Pages:</td>
         <td><?= $book['page_size'] ?></td>
       </tr>
 
       <tr>
-        <td>Nyelv:</td>
+        <td>Language:</td>
         <td><?= $book['lang'] ?></td>
       </tr>
 
       <tr>
-        <td>Kategóriák:</td>
+        <td>Categories:</td>
         <td><?= $book['category'] ?></td>
       </tr>
     </table>
   </div>
 
   <div class="col-12">
-    <h4 class="col-12">Leírás</h4>
+    <h4 class="col-12">Descreption:</h4>
     <p class="col-12">
       <?= $book['description'] ?>
     </p>

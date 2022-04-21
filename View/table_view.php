@@ -1,8 +1,8 @@
 <table class="frontend-table" cellspacing="0">
     <tr>
-        <th>Cím</th>
-        <th>Szerző</th>
-        <th>Kategóriák</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Category</th>
     </tr>
 
     <? foreach ($books as $key => $book) { ?>
@@ -13,5 +13,4 @@
             <td><?= $book['category'] ?></td>
         </tr>
     <?  }  ?>
-
 </table>

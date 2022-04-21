@@ -14,7 +14,7 @@ function debug($array, $level = 1){
       foreach($array as $key => $value){
         if(is_array($value)){
           echo "$prefix [$key] => { <br>";
-          debug($value, $level);
+        //  debug($value, $level);
         } else{
               $type = gettype($value);
               echo $prefix . $prefix . " ['$key'] => ". $type . $value, ') <br>';
@@ -23,5 +23,3 @@ function debug($array, $level = 1){
     echo $prefix ."} <br>";
   }
 }
-
-?>

@@ -8,16 +8,17 @@ $books = new Books();
 
 
 <!DOCTYPE html>
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Könyvtár program</title>
-    <link rel="icon" href="img/favicon.png">
-    <link rel="stylesheet" href="css/responsive.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Könyvtár program</title>
+  <link rel="icon" href="img/favicon.png">
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/script.js"></script>
 </head>
 
 <body>
@@ -30,9 +31,9 @@ $books = new Books();
 
         <table cellspacing="0">
           <tr>
-            <th>Cím</th>
-            <th>Szerző</th>
-            <th>Kategóriák</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
           </tr>
 
           <? foreach ($books->getBooksByCategory(intval($_GET['cat'])) as $key => $book) { ?>
@@ -41,13 +42,14 @@ $books = new Books();
               <td><?= $book['author'] ?></td>
               <td><?= $book['category'] ?></td>
             </tr>
-        <?  }  ?>
+          <?  }  ?>
 
         </table>
       </div>
       <br>
-      <button type="button" onclick="location.href='index.php'">Vissza</button>
+      <button type="button" onclick="location.href='index.php'">Back</button>
     </div>
   </main>
 </body>
+
 </html>

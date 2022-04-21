@@ -3,7 +3,7 @@
 <head>
   <meta content="text/html" charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Könyvtár program</title>
+  <title>Library</title>
   <link rel="icon" href="Sources/img/favicon.png">
   <link rel="stylesheet" href="Sources/css/responsive.css" />
   <link rel="stylesheet" href="Sources/css/style.css" />
@@ -15,13 +15,13 @@
 <body>
   <header>
     <span><img id="panel-nyito" src="Sources/img/menu.png" alt="menü" title="menü"></span>
-    <h1>Könyvtár Program</h1>
+    <h1>Library</h1>
   </header>
 
   <main>
     <div class="col-3" id="kategoria">
       <header class="m-b-10">
-        <h2>Kategóriák</h2>
+        <h2>Categories</h2>
         <span class="f-right"><img id="panel-zaro" src="Sources/img/arrow_left.png" alt="összecsuk" title="összecsuk"></span>
       </header>
       <div>
@@ -36,36 +36,30 @@
         <hr />
 
         <br>
-        <a href="admin/kolcsonzes.html"><span><img src="Sources/img/clipboard.png" alt="kolcsonzes" title="kolcsonzes"></span>Kölcsönzés</a>
-        <br>
-        <a href="?userhandler/login"><span><img src="Sources/img/login.png" alt="belépés" title="belépés"></span>Belépés</a>
+        <!-- <a href="admin/kolcsonzes.html"><span><img src="Sources/img/clipboard.png" alt="kolcsonzes" title="kolcsonzes"></span>Kölcsönzés</a>
+        <br> -->
+        <a href="?userhandler/login"><span><img src="Sources/img/login.png" alt="login" title="login"></span>Login</a>
       </div>
 
     </div>
 
     <div class="col-9" id="tartalom">
       <header class="m-b-20">
-        <h2>Könyvek listája</h2>
+        <h2>List of books</h2>
       </header>
       <div>
         <? $msg->messages(); ?>
-        <input type="search" name="search" class="m-b-20" />
-        <button id="search">Keresés</button>
-        <button class="megse" id="cancel">Mégse</button>
+        <input type="search" name="search" class="m-b-20" id="searchBar" />
+        <button id="search">Search</button>
+        <button class="megse" id="cancel">Cancel</button>
 
         <div id="table-content">
-
-          <?= include_once('View/table_view.php') ?>
-
-        </div>
+          <?= include_once('table_view.php') ?></div>
 
         <div id="detail-view">
           <?
-
-
           $book = $books[0];
           include_once('detail.php') ?>
-
         </div>
 
       </div>

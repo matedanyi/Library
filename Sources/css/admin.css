@@ -1,21 +1,24 @@
-
-header span, header h1 {
+header span,
+header h1 {
   display: inline;
 }
 
-header{
+header {
   background-color: lightgrey;
   padding: 5px;
   border: 1px solid #f5f5f5;
 }
 
-h1, h2 {
-
+h1 span,
+h2 span {
+  background-color: #b22222;
+  color: #fff;
+  border: 1px solid #ffa500;
 }
 
-button{
+button {
   padding: 10px 20px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
   background-color: #dcdcdc;
   border: 1px solid #c0c0c0;
@@ -26,23 +29,22 @@ table {
   margin-top: 20px;
 }
 
-table tr, table th, table td {
+table tr,
+table th,
+table td {
   padding: 10px;
   border: 1px solid grey;
 }
 
-
 table th {
   background-color: #ffa07a;
-
 }
 
-
-table tr:nth-child(2n+0) {
+table tr:nth-child(2n + 0) {
   background-color: #faf0ea;
 }
 
-.functions a img{
+.functions a img {
   width: 20px;
 }
 
@@ -50,8 +52,7 @@ table tr:nth-child(2n+0) {
   text-align: center;
 }
 
-
-.form_panel{
+.form_panel {
   margin: auto;
   float: none;
 }
@@ -117,11 +118,7 @@ main {
   height: 700px;
 }
 
-
-
-#bcgkat{
-
-
+#bcgkat {
 }
 
 /* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
@@ -135,8 +132,8 @@ main {
     align-items: stretch;
   }
 
-  .p-t-s-20{
-  padding-top: 20px;
-  font-size: bold;
+  .p-t-s-20 {
+    padding-top: 20px;
+    font-size: bold;
   }
 }

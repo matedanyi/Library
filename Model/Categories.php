@@ -1,7 +1,8 @@
 <?
 include_once('Application.php');
 
-class Categories extends Application {
+class Categories extends Application
+{
 
   private $sql = array(
     'allCategories' => "SELECT NAME, id FROM categories c WHERE c.active = 1",
@@ -10,21 +11,28 @@ class Categories extends Application {
                       WHERE id = {id} AND c.active = 1"
   );
 
+  // private $messages = array();
 
-  public function __construct() {
+  protected $table = 'categories';
+  protected $fields = array('id', 'name');
+
+
+  public function __construct()
+  {
     parent::__construct();
-
   }
 
-  public function getCategories() {
+  public function getCategories()
+  {
     $categories = $this->getResultList($this->sql['allCategories']);
     return $categories;
   }
 
 
 
-  public function delete($id) {
-    if(!$this->isValidId($id)) {
+  public function delete($id)
+  {
+    if (!$this->isValidId($id)) {
       return false;
     }
     $res = $this->deleteRecordById('categories', $id);
@@ -40,7 +48,7 @@ class Categories extends Application {
 
 
 
-/*
+  /*
 
 
   public function getBooksByCategory($categoryId){
@@ -104,15 +112,4 @@ class Categories extends Application {
   /* Kilistázza az összes könyvet az oldal elejére.
   debug( $this->getResultList("select * from books"));
   */
-
-
-
-
-
-
-
-
-
 }
-
-?>

@@ -6,7 +6,14 @@ class Authors extends Application
 
   private $sql = array(
     'allAuthors' => "SELECT NAME, id FROM authors WHERE active = 1",
+    'authorById' => "SELECT a.name FROM authors a 
+    WHERE a.id = {id}",
   );
+
+  private $messages = array();
+
+  protected $table = 'authors';
+  protected $fields = array('id', 'name');
 
 
   public function __construct()
@@ -29,7 +36,41 @@ class Authors extends Application
     return $res;
   }
 
+  public function getAuthorById($id)
+  {
+    if (!$this->isValidId($id)) {
+      return array();
+    }
+    $params = array(
+      '{id}' => $id
+    );
+    $author = $this->getSingleResult(strtr($this->sql['authorById'], $params));
 
+    if ($author->num_rows > 0) {
+      return true;
+    }
+
+    return true;
+  }
+
+  public function save($author)
+  {
+    $author = $_POST['author'];
+
+    if (!isset($author) || empty($author) || $author == null) {
+      $this->messages[] = 'A szerző mező kitöltése kötelező!!!';
+      $this->msg->setSessionMessage('A szerző mező kitöltése kötelező!!!');
+      return false;
+    }
+
+    if (strlen($author) > 255) {
+      $this->messages[] = 'A szerző hossza nem haladhatja meg a 255 karaktert';
+      return false;
+    }
+
+    $sql = 'INSERT INTO `authors` (`name`) VALUES (' .  "'$author'" .  ')';
+    return $this->execute($sql);
+  }
 
   /*
   public function getBooksByCategory($categoryId){
