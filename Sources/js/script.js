@@ -193,4 +193,29 @@ $(document).ready(function () {
     loading.hide();
   });
 
+
+  $(".category").click(function (event) {
+    let id = event.target.id;
+    console.log(id);
+    // alert(id);
+    // if (isNaN(id)) {
+    //   console.log(id + " is not a number <br/>");
+    // } else {
+    //   console.log(id + " is a number <br/>");
+    // }
+
+    $.ajax({
+      method: "POST",
+      url: "?library/searchCategories/",
+      data: { 'cat': id }
+    })
+      .done(function (msg) {
+        console.log(msg)
+        $("#table-content").html(msg);
+      });
+
+  });
+
+
+
 });

@@ -28,8 +28,11 @@
 
         <? foreach ($categories as $key => $category) { ?>
           <input class="input_kategoria" type="checkbox" name="kategoria_<?= $category['id'] ?>" kat_id="<?= $category['id'] ?>" />
-          <label onclick="location.href='kategoria.php?cat<?= $category['id'] ?>'" for="kategoria_<?= $category['id'] ?>"> <?= $category['NAME'] ?>
+
+
+          <label id="<?= $category['id'] ?>" class="category" for="kategoria_<?= $category['id'] ?>" value="<?= $category['id'] ?>" name="search"> <?= $category['category'] ?>
           </label>
+
           <br />
         <?  }  ?>
 
@@ -38,7 +41,7 @@
         <br>
         <!-- <a href="admin/kolcsonzes.html"><span><img src="Sources/img/clipboard.png" alt="kolcsonzes" title="kolcsonzes"></span>Kölcsönzés</a>
         <br> -->
-        <a href="?userhandler/login"><span><img src="Sources/img/login.png" alt="login" title="login"></span>Login</a>
+        <a href="?userhandler/login"><span><img src="Sources/img/login.png" alt="login" title="login"></span>Login to backend</a>
       </div>
 
     </div>
@@ -54,7 +57,7 @@
         <button class="megse" id="cancel">Cancel</button>
 
         <div id="table-content">
-          <?= include_once('table_view.php') ?></div>
+          <? include_once('table_view.php') ?></div>
 
         <div id="detail-view">
           <?

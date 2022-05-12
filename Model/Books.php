@@ -5,19 +5,19 @@ class Books extends Application
 {
 
   private $sql = array(
-    'allBooks' => "SELECT b.id, b.title, b.page_size, b.lang, a.name AS author, GROUP_CONCAT( c.NAME SEPARATOR ', ') AS category, description, picture FROM books b
+    'allBooks' => "SELECT b.id, b.title, b.page_size, b.lang, a.author AS author, GROUP_CONCAT( c.category SEPARATOR ', ') AS category, description, picture FROM books b
                    LEFT JOIN authors a ON a.id = b.author_id
                    LEFT JOIN books_categories bc ON bc.book_id = b.id
                    LEFT JOIN categories c ON c.id = bc.category_id
                    where b.active = 1
                    GROUP BY b.title",
-    'booksByCategory' => "SELECT b.title, a.name AS author, GROUP_CONCAT( c.NAME SEPARATOR ', ') AS category FROM books b
+    'booksByCategory' => "SELECT b.title, a.author AS author, GROUP_CONCAT( c.category SEPARATOR ', ') AS category FROM books b
                    LEFT JOIN authors a ON a.id = b.author_id
                    LEFT JOIN books_categories bc ON bc.book_id = b.id
                    LEFT JOIN categories c ON c.id = bc.category_id
                    WHERE c.id = {id} AND b.active = 1
                    GROUP BY b.title",
-    'bookById' => "SELECT b.id, b.title, b.page_size, b.lang, a.name AS author, author_id, GROUP_CONCAT( c.NAME SEPARATOR ', ') AS category,
+    'bookById' => "SELECT b.id, b.title, b.page_size, b.lang, a.author AS author, author_id, GROUP_CONCAT( c.category SEPARATOR ', ') AS category,
                     GROUP_CONCAT(c.id SEPARATOR ', ') AS category_ids,  description, picture
                     FROM books b
                     LEFT JOIN authors a ON a.id = b.author_id
@@ -26,12 +26,12 @@ class Books extends Application
                     WHERE b.id = {id} AND b.active = 1
                     GROUP BY b.title
                     LIMIT 1",
-    'booksByFilter' => "SELECT b.id, b.title, b.page_size, b.lang, a.name AS author, GROUP_CONCAT( c.NAME SEPARATOR ', ') AS category, description, picture FROM books b
+    'booksByFilter' => "SELECT b.id, b.title, b.page_size, b.lang, a.author AS author, GROUP_CONCAT( c.category SEPARATOR ', ') AS category, DESCRIPTION, picture FROM books b
                     LEFT JOIN authors a ON a.id = b.author_id
                     LEFT JOIN books_categories bc ON bc.book_id = b.id
                     LEFT JOIN categories c ON c.id = bc.category_id
-                    where b.active = 1 AND lower(b.title) like '%{title}%'
-                    GROUP BY b.title "
+                    where b.active = 1 AND LOWER(b.title) LIKE '%{title}%' OR LOWER(a.author) LIKE '%{title}%'
+                    GROUP BY b.title"
   );
 
   private $messages = array();
@@ -58,7 +58,9 @@ class Books extends Application
       return false;
     }
 
-    $params = array('{title}' => strtolower($title));
+    $params = array(
+      '{title}' => strtolower($title)
+    );
     $books = $this->getResultList(strtr($this->sql['booksByFilter'], $params));
     return $books;
   }
@@ -66,6 +68,7 @@ class Books extends Application
 
   public function getBooksByCategory($categoryId)
   {
+
     if (!$this->isValidId($categoryId)) {
       return array();
     }
@@ -73,6 +76,8 @@ class Books extends Application
     $params = array(
       '{id}' => $categoryId
     );
+
+    // debug(strtr($this->sql['booksByCategory'], $params));
 
     $books = $this->getResultList(strtr($this->sql['booksByCategory'], $params));
 
@@ -107,8 +112,8 @@ class Books extends Application
   public function save($book)
   {
     if (!$this->validation($book)) {
-      $this->writeLog('A kapott adatsor invalid! <br>' . implode('<br>', $this->messages));
-      $this->msg->setSessionMessage('Az űrlap kitöltése nem megfelelő! <br>' . implode('<br>', $this->messages));
+      $this->writeLog('The resulting data set is invalid! <br>' . implode('<br>', $this->messages));
+      $this->msg->setSessionMessage('The form is incorrect! <br>' . implode('<br>', $this->messages));
       return null;
     }
 
@@ -123,8 +128,8 @@ class Books extends Application
         $res = $this->modify($book);
         $this->saveCategory($book);
       } else {
-        $this->writeLog('A kapott id invalid: ' . $book['id']);
-        $this->msg->setSessionMessage('A kapott id invalid: ' . $book['id']);
+        $this->writeLog('Invalid id: ' . $book['id']);
+        $this->msg->setSessionMessage('Invalid id: ' . $book['id']);
       }
     } else {
       $filename = $this->fileUpload();
@@ -159,7 +164,7 @@ class Books extends Application
         }
 
         if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg' && $imageFileType != 'gif') {
-          $this->msg->setErrorMsg("A megengedett képformátumok: JPG, JPEG, PNG vagy GIF");
+          $this->msg->setErrorMsg("The specified image formats: JPG, JPEG, PNG vagy GIF");
           return false;
         }
 
@@ -167,11 +172,11 @@ class Books extends Application
           $filename = basename($_FILES['kep']['name']);
           return $filename;
         } else {
-          $this->msg->setSessionMessage("A fájl áthelyezése sikertelen");
+          $this->msg->setSessionMessage("Failed to move file");
           return false;
         }
       } else {
-        $this->msg->setSessionMessage('A feltöltött fájl nem kép');
+        $this->msg->setSessionMessage('The uploaded file is not an image');
         return false;
       }
     }
@@ -205,34 +210,34 @@ class Books extends Application
   {
 
     if (!isset($data['title']) || empty($data['title']) || $data['title'] == null) {
-      $this->messages[] = 'A cím mező kitöltése kötelező!!!';
+      $this->messages[] = 'The title field is required';
       return false;
     }
 
     if (!is_string($data['title'])) {
-      $this->messages[] = 'A cím csak szöveg lehet';
+      $this->messages[] = 'Title can only be a text';
       return false;
     }
 
     if (strlen($data['title']) > 255) {
-      $this->messages[] = 'A cím hossza nem haladhatja meg a 255 karaktert';
+      $this->messages[] = 'Title cannot exceed 255 characters';
       return false;
     }
 
     $pageSize = intval($data['page_size']);
 
     if ($pageSize < 0 || $pageSize > 10000) {
-      $this->messages[] = 'Az oldal értéke 0 és 10000 közé kell, hogy essen.';
+      $this->messages[] = 'Pages must be between 0 and 10000.';
       return false;
     }
 
     if (!is_string($data['lang'])) {
-      $this->messages[] = 'A nyelv értéke csak szöveg lehet';
+      $this->messages[] = 'Language can only be a text';
       return false;
     }
 
     if (strlen($data['lang']) > 255) {
-      $this->messages[] = 'A nyelv értéke nem lehet hosszabb 255 karakternél';
+      $this->messages[] = 'Language cannot exceed 255 characters';
       return false;
     }
 

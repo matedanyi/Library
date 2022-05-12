@@ -10,7 +10,7 @@ class Users extends Application
     }
 
     public $sql = array(
-        'users' => "SELECT u.loginname, u.password FROM users u
+        'users' => "SELECT u.loginname, u.password, u.role FROM users u
                     WHERE u.loginname = '{loginname}' and u.password = '{password}'"
     );
 

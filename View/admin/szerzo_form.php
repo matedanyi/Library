@@ -20,16 +20,18 @@
     <?= $object->msg->messages() ?>
     <?= $object->msg->getSessionMessage() ?>
     <form id="form-inside" method="post" enctype="multipart/form-data">
-      <label class="col-3" for="cim">Author:</label>
-      <input class="col-6" type="text" name="author" />
+
+
+      <input type="hidden" name="id" value='<?= empty($author['id']) ? null : $author['id'] ?>' />
+
+      <label class="col-3" for="author">Author:</label>
+      <input class="col-6" type="text" name="author" value='<?= empty($author['author']) ? '' : $author['author'] ?>' />
 
 
       <div class="col-12">
         <input type="submit" value="Save">
         <button type="button" onclick="location.href='?library/backend'">Close</button>
       </div>
-
-
     </form>
   </main>
 </body>

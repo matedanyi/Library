@@ -419,4 +419,91 @@ első log!!!első log!!!első log!!!első log!!!első log!!!első log!!!első lo
                     where b.active = 1 AND lower(b.title) like '%tolkien%'
                     GROUP BY b.title Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT u.loginname, u.password FROM users u
                     WHERE u.loginname = 'timi' and u.password = '202cb962ac59075b964b07152d234b70'Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT u.loginname, u.password FROM users u
-                    WHERE u.loginname = 'timi' and u.password = '202cb962ac59075b964b07152d234b70'A kapott adatsor invalid! <br>
+                    WHERE u.loginname = 'timi' and u.password = '202cb962ac59075b964b07152d234b70'A kapott adatsor invalid! <br>Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT u.loginname, u.password FROM users u
+                    WHERE u.loginname = 'fafnir@gmail.com' and u.password = '249d6c99eff6d0ef6c470e4254629323'Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT b.id, b.title, b.page_size, b.lang, a.name AS author, GROUP_CONCAT( c.NAME SEPARATOR ', ') AS category, description, picture FROM books b
+                    LEFT JOIN authors a ON a.id = b.author_id
+                    LEFT JOIN books_categories bc ON bc.book_id = b.id
+                    LEFT JOIN categories c ON c.id = bc.category_id
+                    where b.active = 1 AND lower(b.title) like '%tolkien%'
+                    GROUP BY b.title Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT b.id, b.title, b.page_size, b.lang, a.name AS author, GROUP_CONCAT( c.NAME SEPARATOR ', ') AS category, description, picture FROM books b
+                    LEFT JOIN authors a ON a.id = b.author_id
+                    LEFT JOIN books_categories bc ON bc.book_id = b.id
+                    LEFT JOIN categories c ON c.id = bc.category_id
+                    where b.active = 1 AND lower(b.title) like '%tolkien%'
+                    GROUP BY b.title Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 56nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 56Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 5nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 5Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 5nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 5Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 56nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 56Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 5nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 5Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 56nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 56Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 5nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 5Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 5nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 5Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 5nem talált értéket a lekérdezés -- SQL QUERRY: SELECT a.name FROM authors a WHERE a.id = 5Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT b.id, b.title, b.page_size, b.lang, a.name AS author, GROUP_CONCAT( c.NAME SEPARATOR ', ') AS category, DESCRIPTION, picture FROM books b
+                    LEFT JOIN authors a ON a.id = b.author_id
+                    LEFT JOIN books_categories bc ON bc.book_id = b.id
+                    LEFT JOIN categories c ON c.id = bc.category_id
+                    where b.active = 1 AND LOWER(b.title) LIKE '%mér%' OR LOWER(a.name) LIKE '%mér%'
+                    GROUP BY b.titleNem talált értéket a lekérdezés -- SQL QUERRY: SELECT b.id, b.title, b.page_size, b.lang, a.name AS author, GROUP_CONCAT( c.NAME SEPARATOR ', ') AS category, DESCRIPTION, picture FROM books b
+                    LEFT JOIN authors a ON a.id = b.author_id
+                    LEFT JOIN books_categories bc ON bc.book_id = b.id
+                    LEFT JOIN categories c ON c.id = bc.category_id
+                    where b.active = 1 AND LOWER(b.title) LIKE '%mérő%' OR LOWER(a.name) LIKE '%mérő%'
+                    GROUP BY b.titleNem talált értéket a lekérdezés -- SQL QUERRY: SELECT b.id, b.title, b.page_size, b.lang, a.name AS author, GROUP_CONCAT( c.NAME SEPARATOR ', ') AS category, DESCRIPTION, picture FROM books b
+                    LEFT JOIN authors a ON a.id = b.author_id
+                    LEFT JOIN books_categories bc ON bc.book_id = b.id
+                    LEFT JOIN categories c ON c.id = bc.category_id
+                    where b.active = 1 AND LOWER(b.title) LIKE '%novel%' OR LOWER(a.name) LIKE '%novel%'
+                    GROUP BY b.titleNem talált értéket a lekérdezés -- SQL QUERRY: SELECT b.id, b.title, b.page_size, b.lang, a.name AS author, GROUP_CONCAT( c.NAME SEPARATOR ', ') AS category, DESCRIPTION, picture FROM books b
+                    LEFT JOIN authors a ON a.id = b.author_id
+                    LEFT JOIN books_categories bc ON bc.book_id = b.id
+                    LEFT JOIN categories c ON c.id = bc.category_id
+                    where b.active = 1 AND LOWER(b.title) LIKE '%fanta%' OR LOWER(a.name) LIKE '%fanta%'
+                    GROUP BY b.titleNem talált értéket a lekérdezés -- SQL QUERRY: SELECT u.loginname, u.password FROM users u
+                    WHERE u.loginname = 'fafnir@gmail.com' and u.password = '249d6c99eff6d0ef6c470e4254629323'Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT b.title, a.name AS author, GROUP_CONCAT( c.NAME SEPARATOR ', ') AS category FROM books b
+                   LEFT JOIN authors a ON a.id = b.author_id
+                   LEFT JOIN books_categories bc ON bc.book_id = b.id
+                   LEFT JOIN categories c ON c.id = bc.category_id
+                   WHERE c.id = 5 AND b.active = 1
+                   GROUP BY b.titleNem talált értéket a lekérdezés -- SQL QUERRY: SELECT b.title, a.author AS author, GROUP_CONCAT( c.category SEPARATOR ', ') AS category FROM books b
+                   LEFT JOIN authors a ON a.id = b.author_id
+                   LEFT JOIN books_categories bc ON bc.book_id = b.id
+                   LEFT JOIN categories c ON c.id = bc.category_id
+                   WHERE c.id = 5 AND b.active = 1
+                   GROUP BY b.titleNem talált értéket a lekérdezés -- SQL QUERRY: SELECT b.title, a.author AS author, GROUP_CONCAT( c.category SEPARATOR ', ') AS category FROM books b
+                   LEFT JOIN authors a ON a.id = b.author_id
+                   LEFT JOIN books_categories bc ON bc.book_id = b.id
+                   LEFT JOIN categories c ON c.id = bc.category_id
+                   WHERE c.id = 5 AND b.active = 1
+                   GROUP BY b.titleNem talált értéket a lekérdezés -- SQL QUERRY: SELECT b.title, a.author AS author, GROUP_CONCAT( c.category SEPARATOR ', ') AS category FROM books b
+                   LEFT JOIN authors a ON a.id = b.author_id
+                   LEFT JOIN books_categories bc ON bc.book_id = b.id
+                   LEFT JOIN categories c ON c.id = bc.category_id
+                   WHERE c.id = 6 AND b.active = 1
+                   GROUP BY b.titleNem talált értéket a lekérdezés -- SQL QUERRY: SELECT b.title, a.author AS author, GROUP_CONCAT( c.category SEPARATOR ', ') AS category FROM books b
+                   LEFT JOIN authors a ON a.id = b.author_id
+                   LEFT JOIN books_categories bc ON bc.book_id = b.id
+                   LEFT JOIN categories c ON c.id = bc.category_id
+                   WHERE c.id = 8 AND b.active = 1
+                   GROUP BY b.titleNem talált értéket a lekérdezés -- SQL QUERRY: SELECT u.loginname, u.password FROM users u
+                    WHERE u.loginname = '12345' and u.password = '81dc9bdb52d04dc20036dbd8313ed055'Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT u.loginname, u.password FROM users u
+                    WHERE u.loginname = 'timi' and u.password = 'd41d8cd98f00b204e9800998ecf8427e'Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT u.loginname, u.password FROM users u
+                    WHERE u.loginname = 'timi' and u.password = 'd41d8cd98f00b204e9800998ecf8427e'Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT u.loginname, u.password FROM users u
+                    WHERE u.loginname = 'timi' and u.password = 'd41d8cd98f00b204e9800998ecf8427e'Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT b.title, a.author AS author, GROUP_CONCAT( c.category SEPARATOR ', ') AS category FROM books b
+                   LEFT JOIN authors a ON a.id = b.author_id
+                   LEFT JOIN books_categories bc ON bc.book_id = b.id
+                   LEFT JOIN categories c ON c.id = bc.category_id
+                   WHERE c.id = 8 AND b.active = 1
+                   GROUP BY b.titleNem talált értéket a lekérdezés -- SQL QUERRY: SELECT b.title, a.author AS author, GROUP_CONCAT( c.category SEPARATOR ', ') AS category FROM books b
+                   LEFT JOIN authors a ON a.id = b.author_id
+                   LEFT JOIN books_categories bc ON bc.book_id = b.id
+                   LEFT JOIN categories c ON c.id = bc.category_id
+                   WHERE c.id = 6 AND b.active = 1
+                   GROUP BY b.titleNem talált értéket a lekérdezés -- SQL QUERRY: SELECT u.loginname, u.password, u.role FROM users u
+                    WHERE u.loginname = 'demoUser' and u.password = '7815696ecbf1c96e6894b779456d330e'Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT u.loginname, u.password, u.role FROM users u
+                    WHERE u.loginname = 'timi' and u.password = 'fe01ce2a7fbac8fafaed7c982a04e229'Nem talált értéket a lekérdezés -- SQL QUERRY: SELECT u.loginname, u.password, u.role FROM users u
+                    WHERE u.loginname = 'timi' and u.password = 'fe01ce2a7fbac8fafaed7c982a04e229'No value found for query -- SQL QUERRY: SELECT u.loginname, u.password, u.role FROM users u
+                    WHERE u.loginname = 'fafnir' and u.password = '249d6c99eff6d0ef6c470e4254629323'No value found for query -- SQL QUERRY: SELECT u.loginname, u.password, u.role FROM users u
+                    WHERE u.loginname = 'fafnir' and u.password = '249d6c99eff6d0ef6c470e4254629323'No value found for query -- SQL QUERRY: SELECT u.loginname, u.password, u.role FROM users u
+                    WHERE u.loginname = 'fafnir' and u.password = '249d6c99eff6d0ef6c470e4254629323'No value found for query -- SQL QUERRY: SELECT u.loginname, u.password, u.role FROM users u
+                    WHERE u.loginname = 'fafnir' and u.password = '81dc9bdb52d04dc20036dbd8313ed055'No value found for query -- SQL QUERRY: SELECT u.loginname, u.password, u.role FROM users u
+                    WHERE u.loginname = 'fafnir' and u.password = '249d6c99eff6d0ef6c470e4254629323'No value found for query -- SQL QUERRY: SELECT u.loginname, u.password, u.role FROM users u
+                    WHERE u.loginname = 'fafnir' and u.password = '81dc9bdb52d04dc20036dbd8313ed055'No value found for query -- SQL QUERRY: SELECT u.loginname, u.password, u.role FROM users u
+                    WHERE u.loginname = 'fafnir' and u.password = '81dc9bdb52d04dc20036dbd8313ed055'No value found for query -- SQL QUERRY: SELECT u.loginname, u.password, u.role FROM users u
+                    WHERE u.loginname = 'fafnir' and u.password = '81dc9bdb52d04dc20036dbd8313ed055'No value found for query -- SQL QUERRY: SELECT b.title, a.author AS author, GROUP_CONCAT( c.category SEPARATOR ', ') AS category FROM books b
+                   LEFT JOIN authors a ON a.id = b.author_id
+                   LEFT JOIN books_categories bc ON bc.book_id = b.id
+                   LEFT JOIN categories c ON c.id = bc.category_id
+                   WHERE c.id = 8 AND b.active = 1
+                   GROUP BY b.title

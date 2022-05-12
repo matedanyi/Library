@@ -5,16 +5,16 @@ class Categories extends Application
 {
 
   private $sql = array(
-    'allCategories' => "SELECT NAME, id FROM categories c WHERE c.active = 1",
+    'allCategories' => "SELECT category, id FROM categories c WHERE c.active = 1",
 
-    'CategoryById' => "SELECT name FROM categories c
+    'categoryById' => "SELECT c.id, c.category FROM categories c
                       WHERE id = {id} AND c.active = 1"
   );
 
   // private $messages = array();
 
   protected $table = 'categories';
-  protected $fields = array('id', 'name');
+  protected $fields = array('id', 'category');
 
 
   public function __construct()
@@ -28,7 +28,18 @@ class Categories extends Application
     return $categories;
   }
 
+  public function getCategoryById($id)
+  {
+    if (!$this->isValidId($id)) {
+      return array();
+    }
+    $params = array(
+      '{id}' => $id
+    );
+    $category = $this->getSingleResult(strtr($this->sql['categoryById'], $params));
 
+    return $category;
+  }
 
   public function delete($id)
   {
@@ -39,7 +50,32 @@ class Categories extends Application
     return $res;
   }
 
+  public function save($category)
 
+  {
+    // var_dump($category);
+    if (isset($category['id']) && !empty($category['id'])) {
+      if ($this->isValidId(intval($category['id']))) {
+        $this->id = intval($category['id']);
+        $res = $this->modify($category);
+      } else {
+        $this->writeLog('Invalid id: ' . $category['id']);
+        $this->msg->setSessionMessage('Invalid id: ' . $category['id']);
+      }
+    } else {
+      // echo 'sziasztok';
+      // $sql = 'INSERT INTO `categories` (`category`) VALUES (' . '"' . "$category[category]" . '"' .  ')';
+      // echo $sql;
+      // return $this->execute($sql);
+      $res = $this->create($category);
+      $this->msg->setSessionMessage('Save successful ' . '<bnsp></bnsp> ' . $category['category']);
+      // var_dump($res);
+      // $this->id = $this->getLastInsertedId();
+
+
+      return $this->id;
+    }
+  }
 
 
 

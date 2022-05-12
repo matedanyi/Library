@@ -19,13 +19,13 @@ $className = isset($urlSegments[0]) ? ucfirst($urlSegments[0]) : false;
 if ($className) {
   $file = "Controller/$className.php";
   if (!file_exists($file)) {
-    $errorHandler->errorAndDie("Nem található ez a fájl: " . $file);
+    $errorHandler->errorAndDie("Can not find that file: " . $file);
   }
 
   include_once($file);
 
   if (!class_exists($className)) {
-    $errorHandler->errorAndDie("Nem megfelelő url! Nincs ilyen osztálynév.");
+    $errorHandler->errorAndDie("Invalid URL! No such class name.");
   }
 
   $object = new $className();
@@ -40,11 +40,11 @@ if ($className) {
     if ($object->hasRole($method)) {
       $object->$method();
     } else {
-      $errorHandler->errorAndDie("Nincs jogosultság az oldal megtekentiséhez.");
+      $errorHandler->errorAndDie("You do not have permission to view this page.");
     }
   } else {
-    $errorHandler->errorAndDie("Nem található a keresett $method metódus");
+    $errorHandler->errorAndDie("The method you were looking for could not be found $method");
   }
 } else {
-  $errorHandler->errorAndDie("Nem megfelelő url! Nincs megjelölve osztálynév.");
+  $errorHandler->errorAndDie("Invalid URL! No such class name.");
 }

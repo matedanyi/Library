@@ -53,7 +53,7 @@ class Application
         $resultList[] = $row;
       }
     } else {
-      $this->writeLog("Nem talált értéket a lekérdezés", $sql);
+      $this->writeLog("No value found for query", $sql);
     }
 
     return $resultList;
@@ -64,7 +64,7 @@ class Application
     $resultList = $this->getResultList($sql);
 
     if (!$resultList) {
-      $this->writeLog("nem talált értéket a lekérdezés", $sql);
+      $this->writeLog("No value found for query", $sql);
       return array();
     } else {
       return $resultList[0];
@@ -121,6 +121,7 @@ class Application
 
   protected function create($data)
   {
+    // var_dump($data);
     $sql = 'INSERT INTO ' . $this->table . ' ( ';
 
     $insert = array();
@@ -128,12 +129,13 @@ class Application
     foreach ($this->fields as $field) {
       if ($field != 'id') {
         $insert[] = $field;
+        var_dump($field);
         $insertData[] = "'" . $data[$field] . "'";
       }
     }
 
     $sql .= implode(', ', $insert) . ' ) VALUES (' . implode(', ', $insertData) . ')';
-
+    echo $sql;
     return $this->execute($sql);
   }
 
@@ -152,6 +154,7 @@ class Application
 
   protected function modify($data)
   {
+    var_dump($data);
     $sql = 'UPDATE ' . $this->table . ' SET ';
 
     $update = array();
@@ -160,6 +163,7 @@ class Application
         $update[] = $field . " = '" . $data[$field] . "'";
       }
     }
+
     $sql .= implode(', ', $update);
     $sql .= 'WHERE id = ' . $data['id'];
 

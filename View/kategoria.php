@@ -1,13 +1,11 @@
 <?
 include_once('php/Books.php');
-
 $books = new Books();
-
-
+echo $_GET['cat'];
 ?>
 
-
 <!DOCTYPE html>
+<html>
 
 <head>
   <meta charset="utf-8">

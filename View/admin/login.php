@@ -32,6 +32,14 @@
                 <button type="button" onClick="location.href='?library/index'">Close</button>
             </div>
         </form>
+        <div id="loginDetails">
+            <div>
+                <h1>Library application</h1>
+                For login as admin use the following please! <br>
+                Username: <b>demoUser</b> <br>
+                Password: <b> demo</b>
+            </div>
+        </div>
     </main>
 
 </body>

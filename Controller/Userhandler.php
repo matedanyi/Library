@@ -21,25 +21,25 @@ class Userhandler extends AppController
             $loginname = $_POST['loginname'];
             $pass = md5($_POST['password']);
 
-            //TODO: Loginname validálása, users tábla és model létrehozása, a user adatok lekérése
 
-            /* if (strlen($_POST['loginname']) > 10) {
-                $this->messages[] = 'A felhasználónév túl hosszú!';
-                echo 'A felhasználónév túl hosszú!';
+            if (strlen($_POST['loginname']) > 10) {
+                $this->messages[] = 'Username is too long!';
+                echo 'Username is too long!';
                 return false;
             }
 
             if (!is_string($_POST['loginname'])) {
-                $this->messages[] = 'A felhasználónév csak szöveg lehet';
-                echo 'A felhasználónév csak szöveg lehet!';
+                $this->messages[] = 'Username can only be text';
+                echo 'Username can only be text';
                 return false;
             }
 
             if ((empty($_POST['password']))) {
-                $this->messages[] = 'A jelszó kitöltése kötelező';
-                echo 'A jelszó kitöltése kötelező!';
+                $this->messages[] = "Password field can not be empty";
+                echo 'Password field can not be empty';
                 return false;
-            }*/
+            }
+
             $this->useModels(array('Users'));
             $user = array();
             $user = $this->Users->getUser($loginname, $pass);
@@ -47,7 +47,10 @@ class Userhandler extends AppController
             $user = array(
                 'loginname' => $user[0]['loginname'],
                 'password' => $user[0]['password'],
+                'role' => $user[0]['role'],
+
             );
+            var_dump($user);
             if (
                 strtolower($_POST['loginname']) == strtolower($user['loginname'])
                 && md5($_POST['password']) == $user['password']
@@ -55,12 +58,14 @@ class Userhandler extends AppController
                 $userSessionId = session_id();
                 $_SESSION['user'] = $user['loginname'];
                 $_SESSION['sid'] = $userSessionId;
+                $_SESSION['role'] = $user['role'];
+                var_dump($_SESSION);
 
                 $user = $this->Users->setSessionId();
                 header('Location: ?library/backend');
                 exit;
             } else {
-                $this->msg->setSessionMessage('Helytelen felhasználó név vagy jelszó!');
+                $this->msg->setSessionMessage('Incorrect username or password');
             }
         }
     }

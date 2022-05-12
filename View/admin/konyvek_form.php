@@ -34,7 +34,7 @@
       <label class="col-3" for="author_id">Author:</label>
       <select class="col-8" name="author_id">
         <? foreach ($authors as $author) { ?>
-          <option value="<?= $author['id'] ?>" <?= !empty($book['author_id']) && $book['author_id'] == $author['id'] ? 'selected' : '' ?>><?= $author['NAME'] ?> </option>
+          <option value="<?= $author['id'] ?>" <?= !empty($book['author_id']) && $book['author_id'] == $author['id'] ? 'selected' : '' ?>><?= $author['author'] ?> </option>
         <? } ?>
       </select>
 
@@ -44,7 +44,7 @@
         $catArray = !empty($book['category_ids']) ? explode(',', $book['category_ids']) : array();
         foreach ($categories as $category) { ?>
           <input type="checkbox" name="kategoria[<?= $category['id'] ?>]" <?= in_array($category['id'], $catArray) ? 'checked' : '' ?> />
-          <label for="kategoria[<?= $category['id'] ?>]"><?= $category['NAME'] ?></label>
+          <label for="kategoria[<?= $category['id'] ?>]"><?= $category['category'] ?></label>
         <?  }
         ?>
 

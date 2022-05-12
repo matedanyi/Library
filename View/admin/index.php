@@ -16,7 +16,9 @@
 
 <body>
   <header>
-    <h1> <span> Library</span></h1>
+    <a href="?library/index">
+      <h1><span>Library</span></h1>
+    </a>
     <span class="f-right"><a href="?userhandler/logout"><img src="Sources/img/logout.png" alt="kilépés" title="kilépés" /></a></span>
   </header>
 
@@ -33,7 +35,7 @@
 
         <? foreach ($authors as $key => $author) { ?>
           <tr>
-            <td><?= $author['NAME'] ?></td>
+            <td><?= $author['author'] ?></td>
             <td class="functions">
               <a href="?library/author/<?= $author['id'] ?>">
                 <img src="Sources/img/edit.png" alt="modify" title="modify"></a>
@@ -57,7 +59,7 @@
 
         <? foreach ($categories as $key => $category) { ?>
           <tr>
-            <td><?= $category['NAME'] ?></td>
+            <td><?= $category['category'] ?></td>
             <td class="functions">
               <a href="?library/category/<?= $category['id'] ?>">
                 <img src="Sources/img/edit.png" alt="modify" title="modify"></a>

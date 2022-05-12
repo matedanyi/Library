@@ -8,13 +8,13 @@ class AppController
 
   public $msg = null;
   private $allowedMethodList = array();
+  private $protectedMethodList = array();
 
   public function __construct()
   {
     include_once('Utils/Messages.php');
     $this->msg = new Messages();
   }
-
 
   protected function allowedMethods($list)
   {
@@ -26,18 +26,38 @@ class AppController
     return $this->allowedMethodList;
   }
 
+  protected function protectedMethods($list)
+  {
+    $this->protectedMethodList = $list;
+  }
+
+  public function getProtectedMethods()
+  {
+    return $this->protectedMethodList;
+  }
+
   public function hasRole($method)
   {
+    // debug($method);
+    // debug($this->allowedMethodList);
+    // debug($_SESSION['user']);
+    // debug($this->protectedMethodList);
+
+
     if (!in_array($method, $this->allowedMethodList) && $_SESSION['user'] == null) {
       return false;
+    } elseif (!in_array($method, $this->allowedMethodList) && $_SESSION['user'] != null) {
+      $accessMethods = $this->protectedMethodList[$_SESSION['role']];
+
+      if (in_array($method, $accessMethods)) {
+        return true;
+      } else {
+        return false;
+      }
     } else {
       return true;
     }
   }
-
-
-
-
 
   public function getTemplate()
   {
@@ -51,7 +71,6 @@ class AppController
       $this->{$model} = new $model();
     }
   }
-
 
   protected function set($name, $value)
   {

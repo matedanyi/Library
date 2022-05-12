@@ -5,15 +5,14 @@ class Authors extends Application
 {
 
   private $sql = array(
-    'allAuthors' => "SELECT NAME, id FROM authors WHERE active = 1",
-    'authorById' => "SELECT a.name FROM authors a 
-    WHERE a.id = {id}",
+    'allAuthors' => "SELECT author, id FROM authors WHERE active = 1",
+    'authorById' => "SELECT a.id, a.author FROM authors a WHERE a.id = {id}",
   );
 
   private $messages = array();
 
   protected $table = 'authors';
-  protected $fields = array('id', 'name');
+  protected $fields = array('id', 'author');
 
 
   public function __construct()
@@ -26,6 +25,7 @@ class Authors extends Application
     $authors = $this->getResultList($this->sql['allAuthors']);
     return $authors;
   }
+
 
   public function delete($id)
   {
@@ -46,31 +46,36 @@ class Authors extends Application
     );
     $author = $this->getSingleResult(strtr($this->sql['authorById'], $params));
 
-    if ($author->num_rows > 0) {
-      return true;
-    }
-
-    return true;
+    return $author;
   }
 
   public function save($author)
   {
-    $author = $_POST['author'];
+    // var_dump($author);
+    if (isset($author['id']) && !empty($author['id'])) {
+      if ($this->isValidId(intval($author['id']))) {
+        $this->id = intval($author['id']);
+        $res = $this->modify($author);
+      } else {
+        $this->writeLog('Invalid id: ' . $author['id']);
+        $this->msg->setSessionMessage('Invalid id: ' . $author['id']);
+      }
+    } else {
+      // echo 'szia';
+      // $sql = 'INSERT INTO `authors` (`author`) VALUES (' . '"' . "$author[author]" . '"' .  ')';
+      // echo $sql;
+      // return $this->execute($sql);
+      $res = $this->create($author);
+      $this->msg->setSessionMessage('Save successful' . '<bnsp></bnsp> ' . $author['author']);
+      // var_dump($res);
+      // $this->id = $this->getLastInsertedId();
 
-    if (!isset($author) || empty($author) || $author == null) {
-      $this->messages[] = 'A szerző mező kitöltése kötelező!!!';
-      $this->msg->setSessionMessage('A szerző mező kitöltése kötelező!!!');
-      return false;
+
+      return $this->id;
     }
-
-    if (strlen($author) > 255) {
-      $this->messages[] = 'A szerző hossza nem haladhatja meg a 255 karaktert';
-      return false;
-    }
-
-    $sql = 'INSERT INTO `authors` (`name`) VALUES (' .  "'$author'" .  ')';
-    return $this->execute($sql);
   }
+
+
 
   /*
   public function getBooksByCategory($categoryId){

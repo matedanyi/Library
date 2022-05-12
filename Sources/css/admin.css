@@ -9,6 +9,10 @@ header {
   border: 1px solid #f5f5f5;
 }
 
+a:link {
+  text-decoration: none;
+}
+
 h1 span,
 h2 span {
   background-color: #b22222;
@@ -118,9 +122,6 @@ main {
   height: 700px;
 }
 
-#bcgkat {
-}
-
 /* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
 @media (max-width: 800px) {
   #form-inside input {
@@ -136,4 +137,26 @@ main {
     padding-top: 20px;
     font-size: bold;
   }
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#loginDetails {
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  padding: 10px 10px 35px 10px;
+  line-height: 1.6;
+  border: 1px black solid;
+  display: flex;
+  justify-content: center;
+}
+
+#form-buttons {
+  margin: auto;
+  width: 50%;
 }

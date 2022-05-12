@@ -8,7 +8,12 @@ class Library extends AppController
   {
     parent::__construct();
 
-    $this->allowedMethods(array('index', 'detail', 'searchBooks', 'allBooks'));
+    $this->allowedMethods(array('index', 'detail', 'searchBooks', 'searchCategories', 'allBooks'));
+
+    $this->protectedMethods(array(
+      'read' => array('backend'),
+      'write' => array('backend', 'book', 'category', 'author')
+    ));
   }
 
   public function index()
@@ -38,10 +43,21 @@ class Library extends AppController
   public function searchBooks()
   {
     if (isset($_POST['title'])) {
-      $this->useModels(array('Books'));
+      $this->useModels(array('Books', 'Categories', 'Authors'));
       $this->template = 'table_view';
 
       $books = $this->Books->getBooksFilter($_POST['title']);
+      $this->set('books', $books);
+    }
+  }
+
+  public function searchCategories()
+  {
+    if (isset($_POST['cat'])) {
+      // debug($_POST['cat']);
+      $this->useModels(array('Books', 'Categories', 'Authors'));
+      $this->template = 'table_view';
+      $books = $this->Books->getBooksByCategory(intval($_POST['cat']));
       $this->set('books', $books);
     }
   }
@@ -83,12 +99,12 @@ class Library extends AppController
       $id = $this->Books->save($_POST);
 
       if (!empty($id)) {
-        $this->msg->setSessionMessage('A mentés sikeres!');
+        $this->msg->setSessionMessage('Save successful!');
         $url = '?library/book/' . $id;
         header('Location: ' . $url);
         exit;
       } else {
-        $this->msg->setSessionMessage('A mentés sikertelen!');
+        $this->msg->setSessionMessage('Save failed!');
       }
     }
 
@@ -108,7 +124,22 @@ class Library extends AppController
 
   public function category()
   {
+    $this->useModels(array('Categories'));
     $this->template = 'admin/kategoria_form';
+
+    $getKey = array_keys($_GET);
+    $urlSegments = explode("/", $getKey[0]);
+    $id = intval(isset($urlSegments[2]) ? $urlSegments[2] : null);
+
+    if (isset($_POST['category'])) {
+      $category = $this->Categories->save($_POST);
+    }
+    $category = array();
+    if (!empty($id)) {
+      $category = $this->Categories->getCategoryById($id);
+    }
+
+    $this->set('category', $category);
   }
 
   public function author()
@@ -116,13 +147,19 @@ class Library extends AppController
     $this->useModels(array('Authors'));
     $this->template = 'admin/szerzo_form';
 
-    $author = $_POST;
     $getKey = array_keys($_GET);
-
+    $urlSegments = explode("/", $getKey[0]);
+    $id = intval(isset($urlSegments[2]) ? $urlSegments[2] : null);
 
     if (isset($_POST['author'])) {
       $author = $this->Authors->save($_POST);
     }
+
+    $author = array();
+    if (!empty($id)) {
+      $author = $this->Authors->getAuthorById($id);
+    }
+    // var_dump($author);
 
     $this->set('author', $author);
   }
@@ -169,7 +206,7 @@ class Library extends AppController
     if ($res) {
       header("Location: ?library/backend");
     } else {
-      echo "Hiba a rekord törlésekor!";
+      echo "Error deleting record!";
     }
   }
 
@@ -188,7 +225,7 @@ class Library extends AppController
     if ($res) {
       header("Location: ?library/backend");
     } else {
-      echo "Hiba a rekord törlésekor!";
+      echo "Error deleting record!";
     }
   }
 }

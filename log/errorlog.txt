@@ -116,3 +116,49 @@
 [21/Apr/2022:13:03:48]Nem található a keresett detail_php metódus
 [21/Apr/2022:13:04:07]Nem található a keresett detail_php metódus
 [21/Apr/2022:14:09:21]Nem található a keresett  metódus
+[27/Apr/2022:16:28:34]Nem található a keresett  metódus
+[27/Apr/2022:16:50:25]Nem található a keresett kategoria_php?cat2 metódus
+[27/Apr/2022:17:35:56]Nem található a keresett  metódus
+[28/Apr/2022:11:16:31]Nem megfelelő url! Nincs megjelölve osztálynév.
+[28/Apr/2022:11:17:46]Nem található a keresett  metódus
+[28/Apr/2022:12:01:53]Nem található a keresett author metódus
+[28/Apr/2022:12:01:57]Nem található a keresett author metódus
+[28/Apr/2022:12:02:31]Nem található a keresett author metódus
+[28/Apr/2022:12:02:35]Nem található a keresett author metódus
+[28/Apr/2022:12:02:48]Nem található a keresett author metódus
+[28/Apr/2022:13:25:51]Nem található a keresett  metódus
+[28/Apr/2022:13:57:46]Nem található a keresett frontend metódus
+[28/Apr/2022:13:58:37]Nincs jogosultság az oldal megtekentiséhez.
+[28/Apr/2022:13:58:44]Nincs jogosultság az oldal megtekentiséhez.
+[28/Apr/2022:13:59:06]Nincs jogosultság az oldal megtekentiséhez.
+[28/Apr/2022:14:15:16]Nincs jogosultság az oldal megtekentiséhez.
+[28/Apr/2022:18:19:14]Nincs jogosultság az oldal megtekentiséhez.
+[28/Apr/2022:18:28:31]Nincs jogosultság az oldal megtekentiséhez.
+[02/May/2022:13:51:31]Nem megfelelő url! Nincs megjelölve osztálynév.
+[02/May/2022:13:51:39]Nincs jogosultság az oldal megtekentiséhez.
+[02/May/2022:13:51:40]Nincs jogosultság az oldal megtekentiséhez.
+[02/May/2022:13:51:41]Nincs jogosultság az oldal megtekentiséhez.
+[02/May/2022:14:41:03]Nem található a keresett  metódus
+[02/May/2022:15:13:45]Nem található a keresett  metódus
+[02/May/2022:16:10:24]Nem található a keresett  metódus
+[02/May/2022:17:13:18]Nem megfelelő url! Nincs megjelölve osztálynév.
+[02/May/2022:17:20:30]Nincs jogosultság az oldal megtekentiséhez.
+[03/May/2022:20:51:54]Nincs jogosultság az oldal megtekentiséhez.
+[03/May/2022:20:51:55]Nincs jogosultság az oldal megtekentiséhez.
+[03/May/2022:20:51:56]Nincs jogosultság az oldal megtekentiséhez.
+[03/May/2022:20:51:56]Nincs jogosultság az oldal megtekentiséhez.
+[05/May/2022:08:34:41]Nincs jogosultság az oldal megtekentiséhez.
+[05/May/2022:13:35:50]Nincs jogosultság az oldal megtekentiséhez.
+[05/May/2022:15:05:35]Nincs jogosultság az oldal megtekentiséhez.
+[05/May/2022:15:06:07]Nincs jogosultság az oldal megtekentiséhez.
+[05/May/2022:15:06:22]Nincs jogosultság az oldal megtekentiséhez.
+[12/May/2022:17:47:01]You do not have permission to view this page.
+[12/May/2022:17:47:06]You do not have permission to view this page.
+[12/May/2022:17:47:14]You do not have permission to view this page.
+[12/May/2022:17:47:18]You do not have permission to view this page.
+[12/May/2022:17:47:33]You do not have permission to view this page.
+[12/May/2022:17:47:57]You do not have permission to view this page.
+[12/May/2022:17:48:01]You do not have permission to view this page.
+[12/May/2022:17:48:19]You do not have permission to view this page.
+[12/May/2022:17:48:35]You do not have permission to view this page.
+[12/May/2022:17:52:44]The method you were looking for could not be found 

@@ -15,10 +15,17 @@
   <main class="col-6 form_panel">
     <header>
       <h1>Library</h1>
+      <span class="f-right"><a href="?userhandler/logout"><img src="Sources/img/logout.png" alt="kilépés" title="kilépés" /></a></span>
     </header>
-    <form id="form-inside" action="/action_page" method="post" enctype="multipart/form-data">
-      <label class="col-3" for="cim">Category:</label>
-      <input class="col-6" type="text" name="cim" value="ide írd az új kategóriát" />
+    <?= $object->msg->messages() ?>
+    <?= $object->msg->getSessionMessage() ?>
+    <form id="form-inside" method="post" enctype="multipart/form-data">
+
+      <input type="hidden" name="id" value='<?= empty($category['id']) ? null : $category['id'] ?>' />
+
+      <label class="col-3" for="category">Category:</label>
+      <input class="col-6" type="text" name="category" value='<?= empty($category['category']) ? '' : $category['category'] ?>' />
+
       <div class="col-12">
         <input type="submit" value="Save">
         <button type="button" onclick="location.href='?library/backend'">Close</button>
