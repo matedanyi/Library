@@ -19,7 +19,7 @@
   </header>
 
   <main>
-    <div class="col-3" id="kategoria">
+    <div class="col-2" id="kategoria">
       <header class="m-b-10">
         <h2>Categories</h2>
         <span class="f-right"><img id="panel-zaro" src="Sources/img/arrow_left.png" alt="összecsuk" title="összecsuk"></span>
@@ -41,12 +41,12 @@
         <br>
         <!-- <a href="admin/kolcsonzes.html"><span><img src="Sources/img/clipboard.png" alt="kolcsonzes" title="kolcsonzes"></span>Kölcsönzés</a>
         <br> -->
-        <a href="?userhandler/login"><span><img src="Sources/img/login.png" alt="login" title="login"></span>Login to backend</a>
+        <a href="?userhandler/login"><span><img src="Sources/img/login.png" alt="login" title="login"></span>Login to admin page</a>
       </div>
 
     </div>
 
-    <div class="col-9" id="tartalom">
+    <div class="col-10 openedMenu" id="tartalom">
       <header class="m-b-20">
         <h2>List of books</h2>
       </header>
@@ -57,7 +57,8 @@
         <button class="megse" id="cancel">Cancel</button>
 
         <div id="table-content">
-          <? include_once('table_view.php') ?></div>
+          <? include_once('table_view.php') ?>
+        </div>
 
         <div id="detail-view">
           <?

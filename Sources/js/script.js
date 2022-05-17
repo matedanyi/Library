@@ -103,6 +103,8 @@ $(document).on('change', '[class="input_kategoria"]', function () {
 //panel nyitó/záró
 $(document).ready(function () {
   if (localStorage.getItem("panel") == 'closed') {
+    $("#tartalom").removeClass("openedMenu");
+    $('#tartalom').addClass("closedMenu");
     $('#kategoria').addClass("rejtett");
   }
 
@@ -113,18 +115,34 @@ $(document).ready(function () {
       $("#kategoria").addClass("rejtett");
     });
 
+    $("#tartalom").animate({
+      width: "calc(100% - 7px);"
+    }, 700, function () {
+      $("#tartalom").addClass("closedMenu");
+    });
+
     localStorage.setItem("panel", "closed");
 
   });
 
   $('#panel-nyito').click(function () {
     $("#kategoria").removeClass("rejtett");
+    $("#tartalom").removeClass("closedMenu");
+    $('#tartalom').addClass("openedMenu");
+
     $("#kategoria").animate({
-      width: "25%"
+      width: "16.6%"
     }, 700, function () {
 
       localStorage.setItem("panel", "opened");
     });
+    $("#tartalom").animate({
+      width: "calc(83.4% - 7px)"
+    }, 700, function () {
+
+      localStorage.setItem("panel", "opened");
+    });
+
   });
 
   //kereső gomb rejtése

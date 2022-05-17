@@ -1,6 +1,13 @@
+html,
+body {
+  margin: 0px;
+  height: 100vh;
+}
+
 header span,
 header h1 {
   display: inline;
+  color: black;
 }
 
 header {
@@ -9,15 +16,20 @@ header {
   border: 1px solid #f5f5f5;
 }
 
+#hoverText:hover {
+  font-size: 1.01em;
+}
+
 a:link {
   text-decoration: none;
 }
 
-h1 span,
-h2 span {
-  background-color: #b22222;
-  color: #fff;
-  border: 1px solid #ffa500;
+a:visited {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
 }
 
 button {
@@ -120,6 +132,28 @@ textarea {
 main {
   overflow-y: auto;
   height: 700px;
+}
+
+#adminAuthor,
+#adminCategory,
+#adminBooks {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+#authors {
+  margin-left: 15px;
+  padding-left: 5px;
+}
+
+#books {
+  margin-right: 15px;
+  padding-right: 5px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */

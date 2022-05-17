@@ -19,7 +19,6 @@
 
 #tartalom {
   padding-left: 5px;
-  width: calc(75% - 5px);
 }
 
 #kategoria div label {
@@ -134,4 +133,12 @@ header {
     overflow-y: auto;
     height: 300px;
   }
+}
+
+.openedMenu {
+  width: calc(83.4% - 7px);
+}
+
+.closedMenu {
+  width: calc(100% - 7px);
 }

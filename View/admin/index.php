@@ -8,6 +8,7 @@
   <link rel="icon" href="Sources/img/favicon.png">
   <link rel="stylesheet" href="Sources/css/responsive.css" />
   <link rel="stylesheet" href="Sources/css/admin.css" />
+  <link rel="stylesheet" href="Sources/css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="Sources/js/admin_script.js"></script>
@@ -17,94 +18,99 @@
 <body>
   <header>
     <a href="?library/index">
-      <h1><span>Library</span></h1>
+      <h1><span id="hoverText">Library</span></h1>
     </a>
     <span class="f-right"><a href="?userhandler/logout"><img src="Sources/img/logout.png" alt="kilépés" title="kilépés" /></a></span>
   </header>
 
-  <div class="col-12">
-    <div class="col-6">
+  <div class="col-12 container">
+
+    <div class="col-2" id="authors">
       <h2><span>Authors</span></h2>
       <button type="button" onclick="location.href='?library/author';">New author</button>
 
-      <table cellspacing="0">
-        <tr>
-          <th>Author</th>
-          <th>Functions</th>
-        </tr>
-
-        <? foreach ($authors as $key => $author) { ?>
+      <div id="adminAuthor">
+        <table cellspacing="0">
           <tr>
-            <td><?= $author['author'] ?></td>
-            <td class="functions">
-              <a href="?library/author/<?= $author['id'] ?>">
-                <img src="Sources/img/edit.png" alt="modify" title="modify"></a>
-              <a href="#" class="delete_rec" table="Authors" rec_id="<?= $author['id'] ?>">
-                <img src="Sources/img/delete.png" alt="delete" title="delete"></a>
-            </td>
+            <th>Author</th>
+            <th>Functions</th>
           </tr>
-        <?  }  ?>
-      </table>
+
+          <? foreach ($authors as $key => $author) { ?>
+            <tr>
+              <td><?= $author['author'] ?></td>
+              <td class="functions">
+                <a href="?library/author/<?= $author['id'] ?>">
+                  <img src="Sources/img/edit.png" alt="modify" title="modify"></a>
+                <a href="#" class="delete_rec" table="Authors" rec_id="<?= $author['id'] ?>">
+                  <img src="Sources/img/delete.png" alt="delete" title="delete"></a>
+              </td>
+            </tr>
+          <?  }  ?>
+        </table>
+      </div>
     </div>
 
-    <div class="col-6" id="bcgkat">
+    <div class="col-2">
       <h2><span>Categories</span></h2>
       <button type="button" onclick="location.href='?library/category';">New category</button>
-      <table cellspacing="0">
-        <tr>
-          <th>Category</th>
-          <th>Functions</th>
-        </tr>
-
-
-        <? foreach ($categories as $key => $category) { ?>
+      <div id="adminCategory">
+        <table cellspacing="0">
           <tr>
-            <td><?= $category['category'] ?></td>
-            <td class="functions">
-              <a href="?library/category/<?= $category['id'] ?>">
-                <img src="Sources/img/edit.png" alt="modify" title="modify"></a>
-              <a href="#" class="delete_rec" table="Categories" rec_id="<?= $category['id'] ?>">
-                <img src="Sources/img/delete.png" alt="delete" title="delete"></a>
-            </td>
+            <th>Category</th>
+            <th>Functions</th>
           </tr>
-        <?  }  ?>
 
 
-      </table>
+          <? foreach ($categories as $key => $category) { ?>
+            <tr>
+              <td><?= $category['category'] ?></td>
+              <td class="functions">
+                <a href="?library/category/<?= $category['id'] ?>">
+                  <img src="Sources/img/edit.png" alt="modify" title="modify"></a>
+                <a href="#" class="delete_rec" table="Categories" rec_id="<?= $category['id'] ?>">
+                  <img src="Sources/img/delete.png" alt="delete" title="delete"></a>
+              </td>
+            </tr>
+          <?  }  ?>
+
+
+        </table>
+      </div>
     </div>
-  </div>
 
-  <div class="col-12">
-    <h2><span>Books</span></h2>
-    <button type="button" onclick="location.href='?library/book';">New books</button>
+    <div class="col-6" id="books">
+      <h2><span>Books</span></h2>
+      <button type="button" onclick="location.href='?library/book';">New books</button>
+      <div id="adminBooks">
 
-    <table cellspacing="0">
-      <tr>
-        <th>Title</th>
-        <th>Pages</th>
-        <th>Language</th>
-        <th>Author</th>
-        <th>Categories</th>
-        <th>Functions</th>
-      </tr>
-      <? foreach ($books as $key => $book) { ?>
-        <tr>
-          <td><?= $book['title'] ?></td>
-          <td><?= $book['page_size'] ?></td>
-          <td><?= $book['lang'] ?></td>
-          <td><?= $book['author'] ?></td>
-          <td><?= $book['category'] ?></td>
-          <td class="functions">
-            <a href="?library/book/<?= $book['id'] ?>">
-              <img src="Sources/img/edit.png" alt="modify" title="modify"></a>
-            <a href="#" class="delete_rec" table="Books" rec_id="<?= $book['id'] ?>">
-              <img src="Sources/img/delete.png" alt="delete" title="delete"></a>
-          </td>
-        </tr>
-      <?  }  ?>
-
-
-    </table>
+        <table cellspacing="0">
+          <tr>
+            <th>Title</th>
+            <th>Pages</th>
+            <th>Language</th>
+            <th>Author</th>
+            <th>Categories</th>
+            <th>Functions</th>
+          </tr>
+          <? foreach ($books as $key => $book) { ?>
+            <tr>
+              <td><?= $book['title'] ?></td>
+              <td><?= $book['page_size'] ?></td>
+              <td><?= $book['lang'] ?></td>
+              <td><?= $book['author'] ?></td>
+              <td><?= $book['category'] ?></td>
+              <td class="functions">
+                <a href="?library/book/<?= $book['id'] ?>">
+                  <img src="Sources/img/edit.png" alt="modify" title="modify"></a>
+                <a href="#" class="delete_rec" table="Books" rec_id="<?= $book['id'] ?>">
+                  <img src="Sources/img/delete.png" alt="delete" title="delete"></a>
+              </td>
+            </tr>
+          <?  }  ?>
+        </table>
+      </div>
+    </div>
   </div>
 </body>
 
