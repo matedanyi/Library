@@ -159,7 +159,7 @@ class Books extends Application
         }
 
         if ($_FILES['kep']['size'] > 500000) {
-          $this->msg->setSessionMessage("A fájl mérete túl nagy");
+          $this->msg->setSessionMessage("File size is too big! <br>");
           return false;
         }
 
