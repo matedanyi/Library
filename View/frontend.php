@@ -15,7 +15,10 @@
 <body>
   <header>
     <span><img id="panel-nyito" src="Sources/img/menu.png" alt="menü" title="menü"></span>
-    <h1>Library</h1>
+
+    <a href="?library/index">
+      <h1><span id="hoverText">Library</span></h1>
+    </a>
   </header>
 
   <main>

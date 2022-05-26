@@ -129,7 +129,7 @@ class Application
     foreach ($this->fields as $field) {
       if ($field != 'id') {
         $insert[] = $field;
-        var_dump($field);
+        //  var_dump($field);
         $insertData[] = "'" . $data[$field] . "'";
       }
     }
@@ -152,9 +152,12 @@ class Application
     return $res;
   }
 
+
+
+
   protected function modify($data)
   {
-    var_dump($data);
+    //var_dump($data);
     $sql = 'UPDATE ' . $this->table . ' SET ';
 
     $update = array();

@@ -5,7 +5,7 @@ class Authors extends Application
 {
 
   private $sql = array(
-    'allAuthors' => "SELECT author, id FROM authors WHERE active = 1",
+    'allAuthors' => "SELECT author, id FROM authors WHERE active = 1 ORDER BY id desc ",
     'authorById' => "SELECT a.id, a.author FROM authors a WHERE a.id = {id}",
   );
 
@@ -61,7 +61,7 @@ class Authors extends Application
         $this->msg->setSessionMessage('Invalid id: ' . $author['id']);
       }
     } else {
-      // echo 'szia';
+
       // $sql = 'INSERT INTO `authors` (`author`) VALUES (' . '"' . "$author[author]" . '"' .  ')';
       // echo $sql;
       // return $this->execute($sql);

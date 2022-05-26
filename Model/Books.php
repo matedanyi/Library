@@ -10,13 +10,15 @@ class Books extends Application
                    LEFT JOIN books_categories bc ON bc.book_id = b.id
                    LEFT JOIN categories c ON c.id = bc.category_id
                    where b.active = 1
-                   GROUP BY b.title",
+                   GROUP BY b.title
+                   ORDER BY id desc",
     'booksByCategory' => "SELECT b.title, a.author AS author, GROUP_CONCAT( c.category SEPARATOR ', ') AS category FROM books b
                    LEFT JOIN authors a ON a.id = b.author_id
                    LEFT JOIN books_categories bc ON bc.book_id = b.id
                    LEFT JOIN categories c ON c.id = bc.category_id
                    WHERE c.id = {id} AND b.active = 1
-                   GROUP BY b.title",
+                   GROUP BY b.title
+                   ORDER BY b.id desc",
     'bookById' => "SELECT b.id, b.title, b.page_size, b.lang, a.author AS author, author_id, GROUP_CONCAT( c.category SEPARATOR ', ') AS category,
                     GROUP_CONCAT(c.id SEPARATOR ', ') AS category_ids,  description, picture
                     FROM books b
@@ -31,7 +33,8 @@ class Books extends Application
                     LEFT JOIN books_categories bc ON bc.book_id = b.id
                     LEFT JOIN categories c ON c.id = bc.category_id
                     where b.active = 1 AND LOWER(b.title) LIKE '%{title}%' OR LOWER(a.author) LIKE '%{title}%'
-                    GROUP BY b.title"
+                    GROUP BY b.title
+                    ORDER BY b.id desc"
   );
 
   private $messages = array();
@@ -113,7 +116,7 @@ class Books extends Application
   {
     if (!$this->validation($book)) {
       $this->writeLog('The resulting data set is invalid! <br>' . implode('<br>', $this->messages));
-      $this->msg->setSessionMessage('The form is incorrect! <br>' . implode('<br>', $this->messages));
+      $this->msg->setSessionMessage('The form is incorrect!' . implode('<br>', $this->messages));
       return null;
     }
 
@@ -154,7 +157,7 @@ class Books extends Application
       if ($check !== false) {
 
         if (file_exists($targetFile)) {
-          $this->msg->setSessionMessage("A fájl már létezik");
+          $this->msg->setSessionMessage("The file already exist");
           return false;
         }
 
@@ -210,7 +213,8 @@ class Books extends Application
   {
 
     if (!isset($data['title']) || empty($data['title']) || $data['title'] == null) {
-      $this->messages[] = 'The title field is required';
+      // $this->messages[] = 'The title field is required';
+      $this->msg->setValidationMsg('title', 'The title field is required');
       return false;
     }
 
@@ -227,7 +231,7 @@ class Books extends Application
     $pageSize = intval($data['page_size']);
 
     if ($pageSize < 0 || $pageSize > 10000) {
-      $this->messages[] = 'Pages must be between 0 and 10000.';
+      $this->messages[] = '<br>Pages must be between 0 and 10000.';
       return false;
     }
 

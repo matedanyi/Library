@@ -33,6 +33,23 @@ header span,
 header h1,
 header h2 {
   display: inline;
+  color: black;
+}
+
+#hoverText:hover {
+  font-size: 1.01em;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
 }
 
 header span img,

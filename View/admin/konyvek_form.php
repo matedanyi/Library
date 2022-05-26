@@ -8,6 +8,9 @@
   <link rel="icon" href="Sources/img/favicon.png">
   <link rel="stylesheet" href="Sources/css/responsive.css" />
   <link rel="stylesheet" href="Sources/css/admin.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script src="Sources/js/admin_script.js"></script>
 </head>
 
 <body>
@@ -24,10 +27,12 @@
 
       <label class="col-3" for="title">Title:</label>
       <input class="col-6" type="text" name="title" value='<?= empty($book['title']) ? '' : $book['title'] ?>' />
+      <span class="validation" field='title'><?= $object->msg->getValidationMessage('title') ?></span>
 
       <label class="col-3" for="page_size">Pages:</label>
       <input class="col-6" type="number" name="page_size" value='<?= empty($book['page_size']) ? '' : $book['page_size'] ?>' />
-
+      <span class="validation" field='page_size'><?= $object->msg->getValidationMessage('page_size') ?></span>
+      
       <label class="col-3" for="lang">Language:</label>
       <input class="col-6" type="text" name="lang" value='<?= empty($book['lang']) ? '' : $book['lang'] ?>' />
 

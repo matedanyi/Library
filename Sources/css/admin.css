@@ -1,3 +1,16 @@
+.validation {
+  display: block;
+  font-weight: bold;
+  width: 100%;
+  color: red;
+  font-size: 0.7em;
+  padding-left: 27%;
+}
+
+input[invalid="true"] {
+  border-color: red !important;
+}
+
 html,
 body {
   margin: 0px;

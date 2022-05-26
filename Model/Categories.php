@@ -63,7 +63,6 @@ class Categories extends Application
         $this->msg->setSessionMessage('Invalid id: ' . $category['id']);
       }
     } else {
-      // echo 'sziasztok';
       // $sql = 'INSERT INTO `categories` (`category`) VALUES (' . '"' . "$category[category]" . '"' .  ')';
       // echo $sql;
       // return $this->execute($sql);

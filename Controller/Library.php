@@ -99,7 +99,7 @@ class Library extends AppController
       $id = $this->Books->save($_POST);
 
       if (!empty($id)) {
-        $this->msg->setSessionMessage('Save successful!');
+        $this->msg->setSessionMessage('Save successfully!');
         $url = '?library/book/' . $id;
         header('Location: ' . $url);
         exit;

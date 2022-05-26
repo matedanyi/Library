@@ -50,7 +50,7 @@ class Userhandler extends AppController
                 'role' => $user[0]['role'],
 
             );
-            var_dump($user);
+         //   var_dump($user);
             if (
                 strtolower($_POST['loginname']) == strtolower($user['loginname'])
                 && md5($_POST['password']) == $user['password']
@@ -59,7 +59,7 @@ class Userhandler extends AppController
                 $_SESSION['user'] = $user['loginname'];
                 $_SESSION['sid'] = $userSessionId;
                 $_SESSION['role'] = $user['role'];
-                var_dump($_SESSION);
+             //   var_dump($_SESSION);
 
                 $user = $this->Users->setSessionId();
                 header('Location: ?library/backend');
