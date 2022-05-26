@@ -121,7 +121,15 @@ class Application
 
   protected function create($data)
   {
-    // var_dump($data);
+    if (array_key_exists('description', $data)) {
+      // echo 'igen létezik';
+
+      // var_dump($data['description']);
+      // echo '<br>;';
+      $data['description'] = str_replace("'", "''", $data['description']);
+      // echo '<br>;';
+      // var_dump($data['description']);
+    }
     $sql = 'INSERT INTO ' . $this->table . ' ( ';
 
     $insert = array();
@@ -135,7 +143,7 @@ class Application
     }
 
     $sql .= implode(', ', $insert) . ' ) VALUES (' . implode(', ', $insertData) . ')';
-    echo $sql;
+    // echo $sql;
     return $this->execute($sql);
   }
 
@@ -157,6 +165,16 @@ class Application
 
   protected function modify($data)
   {
+
+    if (array_key_exists('description', $data)) {
+      echo 'igen létezik';
+
+      var_dump($data['description']);
+      echo '<br>;';
+      $data['description'] = str_replace("'", "''", $data['description']);
+      echo '<br>;';
+      var_dump($data['description']);
+    }
     //var_dump($data);
     $sql = 'UPDATE ' . $this->table . ' SET ';
 

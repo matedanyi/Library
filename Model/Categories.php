@@ -67,7 +67,7 @@ class Categories extends Application
       // echo $sql;
       // return $this->execute($sql);
       $res = $this->create($category);
-      $this->msg->setSessionMessage('Save successful ' . '<bnsp></bnsp> ' . $category['category']);
+      $this->msg->setSessionMessage('Save successfully ' . '<bnsp></bnsp> ' . $category['category']);
       // var_dump($res);
       // $this->id = $this->getLastInsertedId();
 

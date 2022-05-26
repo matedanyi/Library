@@ -66,7 +66,7 @@ class Authors extends Application
       // echo $sql;
       // return $this->execute($sql);
       $res = $this->create($author);
-      $this->msg->setSessionMessage('Save successful' . '<bnsp></bnsp> ' . $author['author']);
+      $this->msg->setSessionMessage('Save successfully' . '<bnsp></bnsp> ' . $author['author']);
       // var_dump($res);
       // $this->id = $this->getLastInsertedId();
 
